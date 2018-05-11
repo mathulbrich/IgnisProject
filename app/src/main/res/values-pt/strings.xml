@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">IgnisProject</string>
+
+    <string name="ai_dont_pray">AIs não rezam!</string>
+    <string name="passing_ai">Eu sou apenas uma AI de passagem...</string>
+
+</resources>
