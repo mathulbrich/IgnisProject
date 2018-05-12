@@ -38,5 +38,12 @@ git clone https://github.com/MathUlbrich/IgnisProject.git
 ### Class diagram
 ![DIAGRAM](/Screenshots/Class_diagram.png)
 
+### Description
+**MainActivity**: Is the class on the program will be running. It realize functions like listen the users speechs. Also contain the responses of Ignis to be matched with the user response.
+
+**Response**: Class thats have the structure for Ignis responses.
+
+**AI**: This class is a implementation of the Response class. This class give the concrete voices, messages and images of the response.
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
