@@ -11,8 +11,10 @@ This project is in test phase.
 The project was not tested yet. This because of some problems with my computer, so it may be not working.
 
 ## Proxy Screenshots
-![AI-STAND](/Screenshots/Ignis_stand_screenshot.png)
-![AI-LAUGH](/Screenshots/Ignis_laugh_screenshot.png)
+<p align="center">
+<img src="/Screenshots/Ignis_stand_screenshot.png">
+<img src="/Screenshots/Ignis_laugh_screenshot.png">
+</p>
 
 ## How to contribute?
 ```
@@ -36,8 +38,10 @@ git clone https://github.com/MathUlbrich/IgnisProject.git
 ## Technical informations
 
 ### Class diagram
-![DIAGRAM](/Screenshots/Class_diagram.png)
-
+<p align="center">
+<img src="/Screenshots/Class_diagram.png" width="700">
+</p>
+  
 ### Description
 **MainActivity**: Is the class on the program will be running. It realize functions like listen the users speechs. Also contain the responses of Ignis to be matched with the user response.
 
