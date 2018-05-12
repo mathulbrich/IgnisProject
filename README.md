@@ -6,6 +6,10 @@ At the moment only AI Ignis will be avaliable, but I expect to create the others
 
 This project is in test phase.
 
+## Issues
+
+The project was not tested yet. This because of some problems with my computer, so it may be not working.
+
 ## Proxy Screenshots
 ![AI-STAND](/Screenshots/Ignis_stand_screenshot.png)
 ![AI-LAUGH](/Screenshots/Ignis_laugh_screenshot.png)
@@ -28,6 +32,11 @@ git clone https://github.com/MathUlbrich/IgnisProject.git
 <li>English</li>
 <li>Portuguese</li>
 </ul>
+
+## Technical informations
+
+### Class diagram
+![DIAGRAM](/Screenshots/Class_diagram.png)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
