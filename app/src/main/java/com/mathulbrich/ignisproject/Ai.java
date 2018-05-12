@@ -12,11 +12,11 @@ public class Ai {
     public static Response[] getAiResponses() {
         Response[] responses = new Response[2];
 
-        responses[PASSING_AI] = new Response(R.drawable.ignis1, R.string.passing_ai, R.raw.passing_ai,
+        responses[PASSING_AI] = new Response(R.drawable.ignis_stand, R.string.passing_ai, R.raw.passing_ai,
                 new int[] {
                 R.string.ai
         });
-        responses[AI_DONT_PRAY] = new Response(R.drawable.ignis1, R.string.ai_dont_pray, R.raw.ai_dont_pray,
+        responses[AI_DONT_PRAY] = new Response(R.drawable.ignis_stand, R.string.ai_dont_pray, R.raw.ai_dont_pray,
                 new int[] {
                 R.string.pray,
                 R.string.god

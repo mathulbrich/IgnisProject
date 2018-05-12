@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     TextView message;
     TextView timeText;
     ImageView image;
-    final static int SPEECH_CODE = 77;
+    final static int SPEECH_CODE = 77; //identifier for the called activity
 
     boolean pressed;
 
@@ -93,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Actually incomplete. Must be fixed.
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -108,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
                     for(Response r : responses) {
 
                         for(int resource : r.getTrigger()) {
+
+                            // if the speeched voice contains a keyword that AI
+                            //understands, it will response.
                             if(toLowerCase.contains(getString(resource))) {
                                 speak(r);
                                 already = true;

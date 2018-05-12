@@ -23,7 +23,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:scaleType="fitEnd"
-        app:srcCompat="@drawable/ignis1" />
+        app:srcCompat="@drawable/ignis_stand" />
 
     <ImageView
         android:id="@+id/dialog"
@@ -43,7 +43,7 @@
         android:layout_alignTop="@+id/dialog"
         android:layout_marginStart="25dp"
         android:layout_marginTop="17dp"
-        android:text="Hehehe..."
+        android:text=""
         android:textColor="@color/messageText"
         android:textSize="34sp" />
 
