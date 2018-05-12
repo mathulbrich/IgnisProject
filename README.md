@@ -10,3 +10,6 @@ This system propose is soft simulate the Yu-Gi-Oh! VRAINS Ignis' behaviors with 
 ```
 git clone https://github.com/MathUlbrich/IgnisProject.git
 ```
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
