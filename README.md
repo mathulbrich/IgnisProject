@@ -1,24 +1,39 @@
-# IgnisProject
+<img src="/Screenshots/logos.png" width=700>
+
+Table of Contents
+========
+
+   * [Description](#description)
+   * [Installation](#installation)
+   * [Usage](#usage)
+      * [Recognized Commands](#recognized-commands)
+      * [Subtitles Languages](#subtitles-languages)
+   * [Contribution](#contribution)
+   * [Screenshots](#screenshots)
+   * [License](#license)
+
+Description
+========
 
 This system propose is soft simulate the Yu-Gi-Oh! VRAINS Ignis' behaviors with the same phrases used in the anime. 
 At the moment only AI Ignis will be avaliable, but I expect to create the others Ignis in the future.
 
-## Issues
-
-The project was not tested yet. This because of some problems with my computer, so it may be not working.
-
-## How to contribute?
+Installation
+========
 ```
 git clone https://github.com/MathUlbrich/IgnisProject.git
 ```
 
-## Preview Screenshots
-<p align="center">
-<img src="/Screenshots/Ignis_stand_screenshot.png">
-<img src="/Screenshots/Ignis_laugh_screenshot.png">
-</p>
+Usage
+========
 
-## Recognized commands
+Talk with Ignis
+--------
+
+To start record your voice commands, you need click on character image. The record will be ended after 4 seconds you pressed it. Ignis recognize only specific words, that will be in the bellow topic.
+
+Recognized commands
+--------
 <ul>
 <li>Pray</li>
 <li>My god</li>
@@ -26,26 +41,27 @@ git clone https://github.com/MathUlbrich/IgnisProject.git
 <li>Ai</li>
 </ul>
 
-## Subtitles languages
+Subtitles Languages
+--------
 <ul>
 <li>English</li>
 <li>Portuguese</li>
 </ul>
 
-## Technical informations
+Contribution
+========
 
-### Class diagram
-This diagram is not up to date.
+See what is in development project.
+
+Screenshots
+========
+
 <p align="center">
-<img src="/Screenshots/Class_diagram.png" width="700">
+<img src="/Screenshots/Ignis_stand_screenshot.png">
+<img src="/Screenshots/Ignis_laugh_screenshot.png">
 </p>
-  
-### Description
-**MainActivity**: Is the class on the program will be running. It realize functions like listen the users speechs. Also contain the responses of Ignis to be matched with the user response.
 
-**Response**: Class thats have the structure for Ignis responses.
+License
+========
 
-**AI**: This class is a implementation of the Response class. This class give the concrete voices, messages and images of the response.
-
-## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
