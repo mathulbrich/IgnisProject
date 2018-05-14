@@ -35,6 +35,7 @@ git clone https://github.com/MathUlbrich/IgnisProject.git
 ## Technical informations
 
 ### Class diagram
+This diagram is not up to date.
 <p align="center">
 <img src="/Screenshots/Class_diagram.png" width="700">
 </p>
