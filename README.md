@@ -1,25 +1,22 @@
 # IgnisProject
 
 This system propose is soft simulate the Yu-Gi-Oh! VRAINS Ignis' behaviors with the same phrases used in the anime. 
-
 At the moment only AI Ignis will be avaliable, but I expect to create the others Ignis in the future.
-
-This project is in test phase.
 
 ## Issues
 
 The project was not tested yet. This because of some problems with my computer, so it may be not working.
 
-## Proxy Screenshots
-<p align="center">
-<img src="/Screenshots/Ignis_stand_screenshot.png">
-<img src="/Screenshots/Ignis_laugh_screenshot.png">
-</p>
-
 ## How to contribute?
 ```
 git clone https://github.com/MathUlbrich/IgnisProject.git
 ```
+
+## Preview Screenshots
+<p align="center">
+<img src="/Screenshots/Ignis_stand_screenshot.png">
+<img src="/Screenshots/Ignis_laugh_screenshot.png">
+</p>
 
 ## Recognized commands
 <ul>
