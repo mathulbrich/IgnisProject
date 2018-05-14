@@ -6,6 +6,7 @@ Table of Contents
    * [Description](#description)
    * [Installation](#installation)
    * [Usage](#usage)
+      * [Talk with Ignis](#talk-with-ignis)
       * [Recognized Commands](#recognized-commands)
       * [Subtitles Languages](#subtitles-languages)
    * [Contribution](#contribution)
