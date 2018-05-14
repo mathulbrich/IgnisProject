@@ -3,6 +3,9 @@
 <resources>
     <string name="app_name">IgnisProject</string>
 
+    <!-- Mensagens de erro -->
+    <string name="no_permission">Seu dispositivo não contém a permissão de gravação de audio.</string>
+
     <string name="ai_dont_pray">AIs não rezam!</string>
     <string name="passing_ai">Eu sou apenas uma AI de passagem...</string>
 

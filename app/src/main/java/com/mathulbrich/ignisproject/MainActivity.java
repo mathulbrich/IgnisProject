@@ -1,20 +1,26 @@
 package com.mathulbrich.ignisproject;
 
 import static android.speech.RecognizerIntent.*;
+import static android.Manifest.*;
+import static android.content.pm.PackageManager.*;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Handler;
+import android.speech.RecognitionListener;
+import android.speech.SpeechRecognizer;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import java.text.SimpleDateFormat;
+import android.text.format.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
     TextView message;
     TextView timeText;
     ImageView image;
-    final static int SPEECH_CODE = 77; //identifier for the called activity
-
+    SpeechRecognizer speechRecognizer;
     boolean pressed;
 
     @Override
@@ -34,16 +39,51 @@ public class MainActivity extends AppCompatActivity {
         message = findViewById(R.id.message);
         image = findViewById(R.id.ignis);
         timeText = findViewById(R.id.timeText);
+        responses = Ai.getAiResponses();
+
+        checkPermissions();
+        checkDeviceFunctions();
+        startTimeCheck();
+
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startListening();
+
+                //after 4 seconds, stop
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        speechRecognizer.stopListening();
+                    }
+                }, 4000);
             }
         });
 
-        responses = Ai.getAiResponses();
-        startTimeCheck();
+        speechRecognizer.setRecognitionListener(new RecognitionListener() {
+
+            public void onReadyForSpeech(Bundle params) {}
+            public void onBeginningOfSpeech() {
+                message.setText("LISTENING...");
+            }
+            public void onRmsChanged(float rmsdB) {}
+            public void onBufferReceived(byte[] buffer) {}
+            public void onEndOfSpeech() {}
+            public void onError(int error) {}
+            public void onPartialResults(Bundle partialResults) {}
+            public void onEvent(int eventType, Bundle params) {}
+
+            public void onResults(Bundle results) {
+                ArrayList<String> data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+                if (data != null)
+                    message.setText(data.get(0));
+            }
+
+        });
+
     }
 
     protected void startListening() {
@@ -51,7 +91,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_LANGUAGE_MODEL, LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(EXTRA_LANGUAGE, "en-US");
         intent.putExtra(EXTRA_PROMPT, "Listening...");
-        startActivityForResult(intent, SPEECH_CODE);
+        speechRecognizer.startListening(intent);
+
     }
 
     protected void speak(Response r) {
@@ -76,63 +117,61 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     protected void startTimeCheck() {
-        Handler handler = new Handler();
 
-        handler.post(new Runnable() {
+        Thread t = new Thread() {
+            @Override
             public void run() {
-                Date date = Calendar.getInstance(Locale.getDefault()).getTime();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-                dateFormat.setTimeZone(TimeZone.getDefault());
-
-                while (true)
-                    timeText.setText(dateFormat.format(date));
-            }
-        });
-
-    }
-
-    /**
-     * Actually incomplete. Must be fixed.
-     * @param requestCode
-     * @param resultCode
-     * @param data
-     */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        switch(requestCode) {
-            case SPEECH_CODE:
-                if(resultCode == RESULT_OK && data != null) {
-                    String resultText = data.getStringArrayExtra(EXTRA_RESULTS)[0];
-                    String toLowerCase = resultText.toLowerCase();
-
-                    boolean already = false;
-
-                    for(Response r : responses) {
-
-                        for(int resource : r.getTrigger()) {
-
-                            // if the speeched voice contains a keyword that AI
-                            //understands, it will response.
-                            if(toLowerCase.contains(getString(resource))) {
-                                speak(r);
-                                already = true;
-                                break;
+                try {
+                    while(!isInterrupted()) {
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                timeText.setText(DateFormat.format("hh:mm", Calendar.getInstance().getTime()));
                             }
-                        }
-                        if(already)
-                            break;
+                        });
+                        Thread.sleep(1000);
                     }
+                } catch(InterruptedException e) {}
 
-                    if(!already)
-                        speak(responses[Ai.AI_DONT_PRAY]); //speak generic phrase to not understand
+            }
+        };
 
-                }
-                break;
-        }
-
+        t.start();
     }
+
+    protected void checkPermissions() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+            if(!(ContextCompat.checkSelfPermission(this, permission.RECORD_AUDIO) == PERMISSION_GRANTED)) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Error");
+                builder.setMessage(R.string.no_permission);
+                builder.setPositiveButton("CLOSE", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.create().show();
+            }
+        }
+    }
+
+    protected void checkDeviceFunctions() {
+        if(!SpeechRecognizer.isRecognitionAvailable(this)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Error");
+            builder.setMessage(R.string.no_recognition_available);
+            builder.setPositiveButton("CLOSE", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    dialog.dismiss();
+                }
+            });
+
+            builder.create().show();
+        }
+    }
+
 }

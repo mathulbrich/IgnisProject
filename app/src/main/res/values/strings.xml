@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">IgnisProject</string>
 
+    <!-- Message of errors -->
+    <string name="no_permission">Your device not allowed the audio record permission.</string>
+    <string name="no_recognition_available">The recognition function is not available for your device.</string>
+
+    <!-- AI messages -->
     <string name="ai_dont_pray">AIs do not pray!</string>
     <string name="passing_ai">I am just a passing AI...</string>
 
