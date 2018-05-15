@@ -24,8 +24,8 @@ Requirements
 ========
 
 ```
-Java JDK (1.8)
-Android SDK (API 26)
+Android (min. API 19 - Kitkat)
+Google App
 ```
 
 
