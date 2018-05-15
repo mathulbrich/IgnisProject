@@ -31,9 +31,8 @@ Google App
 
 Installation
 ========
-```
-git clone https://github.com/MathUlbrich/IgnisProject.git
-```
+
+The app has not released yet. Please wait until the first version release.
 
 Usage
 ========
@@ -62,7 +61,10 @@ Subtitles Languages
 Contribution
 ========
 
-See what is in development project.
+See what is in development [Project](https://github.com/MathUlbrich/IgnisProject/projects).
+```
+git clone https://github.com/MathUlbrich/IgnisProject.git
+```
 
 Screenshots
 ========
