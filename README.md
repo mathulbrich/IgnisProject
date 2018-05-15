@@ -4,6 +4,7 @@ Table of Contents
 ========
 
    * [Description](#description)
+   * [Requirements](#requirements)
    * [Installation](#installation)
    * [Usage](#usage)
       * [Talk with Ignis](#talk-with-ignis)
@@ -18,6 +19,15 @@ Description
 
 This system propose is soft simulate the Yu-Gi-Oh! VRAINS Ignis' behaviors with the same phrases used in the anime. 
 At the moment only AI Ignis will be avaliable, but I expect to create the others Ignis in the future.
+
+Requirements
+========
+
+```
+Java JDK (1.8)
+Android SDK (API 26)
+```
+
 
 Installation
 ========
