@@ -11,7 +11,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.SpeechRecognizer;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -66,9 +65,7 @@ public class MainActivity extends AppCompatActivity {
         speechRecognizer.setRecognitionListener(new RecognitionListener() {
 
             public void onReadyForSpeech(Bundle params) {}
-            public void onBeginningOfSpeech() {
-                message.setText("LISTENING...");
-            }
+            public void onBeginningOfSpeech() {}
             public void onRmsChanged(float rmsdB) {}
             public void onBufferReceived(byte[] buffer) {}
             public void onEndOfSpeech() {}
@@ -81,16 +78,20 @@ public class MainActivity extends AppCompatActivity {
                 if (data != null)
                     message.setText(data.get(0));
             }
-
         });
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        speechRecognizer.destroy();
     }
 
     protected void startListening() {
         Intent intent = new Intent(ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(EXTRA_LANGUAGE_MODEL, LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(EXTRA_LANGUAGE, "en-US");
-        intent.putExtra(EXTRA_PROMPT, "Listening...");
+        //intent.putExtra(EXTRA_PROMPT, "Listening...");
         speechRecognizer.startListening(intent);
 
     }
@@ -142,19 +143,10 @@ public class MainActivity extends AppCompatActivity {
     protected void checkPermissions() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-            if(!(ContextCompat.checkSelfPermission(this, permission.RECORD_AUDIO) == PERMISSION_GRANTED)) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Error");
-                builder.setMessage(R.string.no_permission);
-                builder.setPositiveButton("CLOSE", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                        dialog.dismiss();
-                    }
-                });
-
-                builder.create().show();
+            if (checkCallingOrSelfPermission(permission.RECORD_AUDIO) == PERMISSION_DENIED) {
+                requestPermissions(new String[]{permission.RECORD_AUDIO}, 101);
             }
+
         }
     }
 

@@ -1,4 +1,4 @@
-<img src="/Screenshots/logos.png" width=700>
+<img src="/Screenshots/ignis-logo.png" width=700>
 
 Table of Contents
 ========
