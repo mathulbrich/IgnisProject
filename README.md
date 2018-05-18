@@ -24,8 +24,8 @@ Requirements
 ========
 
 ```
-Android (min. API 19 - Kitkat)
-Google App
+Android (min. API 15 - Ice Cream Sandwich)
+Google App (Can be found in PlayStore)
 ```
 
 
