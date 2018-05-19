@@ -1,9 +1,10 @@
-<img src="/Screenshots/ignis-logo.png" width=700>
+<img src="/Screenshots/ignis-logo.png">
 
 Table of Contents
 ========
 
    * [Description](#description)
+   * [Requirements](#requirements)
    * [Installation](#installation)
    * [Usage](#usage)
       * [Talk with Ignis](#talk-with-ignis)
@@ -19,11 +20,19 @@ Description
 This system propose is soft simulate the Yu-Gi-Oh! VRAINS Ignis' behaviors with the same phrases used in the anime. 
 At the moment only AI Ignis will be avaliable, but I expect to create the others Ignis in the future.
 
+Requirements
+========
+
+```
+Android (min. API 15 - Ice Cream Sandwich)
+Google App (Can be found in PlayStore)
+```
+
+
 Installation
 ========
-```
-git clone https://github.com/MathUlbrich/IgnisProject.git
-```
+
+The app has not released yet. Please wait until the first version release.
 
 Usage
 ========
@@ -52,7 +61,10 @@ Subtitles Languages
 Contribution
 ========
 
-See what is in development project.
+See what is in development [Project](https://github.com/MathUlbrich/IgnisProject/projects).
+```
+git clone https://github.com/MathUlbrich/IgnisProject.git
+```
 
 Screenshots
 ========
