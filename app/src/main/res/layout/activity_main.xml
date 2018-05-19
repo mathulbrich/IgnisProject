@@ -19,7 +19,6 @@
         android:id="@+id/ignis"
         android:layout_width="wrap_content"
         android:layout_height="530dp"
-
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:scaleType="fitEnd"

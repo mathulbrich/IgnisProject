@@ -1,5 +1,7 @@
 package com.mathulbrich.ignisproject;
 
+import android.content.Context;
+
 /**
  * Created by Mathaus Ulbrich on 27/04/2018.
  */
@@ -23,6 +25,21 @@ public class Ai {
         });
 
         return responses;
+    }
+
+    public static Response checkSpeechResponse(Context ctx, String speech) {
+
+        speech = speech.toLowerCase();
+
+        for(Response r : getAiResponses()) {
+            for(int trigger : r.getTrigger()) {
+                if(speech.contains(ctx.getString(trigger))) {
+                    return r;
+                }
+            }
+        }
+
+        return null; //there no corresponding response to user speech
     }
 
 }

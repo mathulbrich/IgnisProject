@@ -10,8 +10,8 @@
     <string name="passing_ai">I am just a passing AI...</string>
 
     <!-- Trigger phrases to Ignis Ai response -->
-    <string name="pray">Pray</string>
-    <string name="god">My god</string>
-    <string name="who">Who are you</string>
-    <string name="ai">Ai</string>
+    <string name="pray">pray</string>
+    <string name="god">my god</string>
+    <string name="who">who are you</string>
+    <string name="ai">ai</string>
 </resources>
