@@ -44,6 +44,8 @@ To start record your voice commands, you need click on character image. The reco
 
 Recognized commands
 --------
+For more precision, use English language.
+
 <ul>
 <li>Pray</li>
 <li>My god</li>
